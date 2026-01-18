@@ -1,0 +1,21 @@
+# ================== COPIA DE SEGURIDAD ==================
+
+function Copia-Seguridad {
+
+    $Origen = "C:\instituto"
+    $DestinoBase = "C:\Backups"
+
+    # Crear carpeta de backups si no existe
+    if (-not (Test-Path $DestinoBase)) {
+        New-Item -ItemType Directory -Path $DestinoBase
+    }
+
+    # Crear carpeta con fecha y hora
+    $Fecha = Get-Date -Format "yyyyMMdd_HHmmss"
+    $Destino = "$DestinoBase\backup_$Fecha"
+
+    # Copia completa del gestor documental
+    Copy-Item -Path $Origen -Destination $Destino -Recurse -Force
+
+    Write-Host "Copia de seguridad creada correctamente en: $Destino"
+}
