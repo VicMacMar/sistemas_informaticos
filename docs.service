@@ -1,0 +1,11 @@
+[Unit]
+Description=MkDocs Notas
+
+[Service]
+Type=simple
+WorkingDirectory=/home/dani/mkdocspro
+ExecStart=/home/dani/.local/bin/mkdocs serve
+Restart=always
+
+[Install]
+WantedBy=default.target
