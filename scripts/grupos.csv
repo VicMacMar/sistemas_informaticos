@@ -1,0 +1,5 @@
+Name:Path:Description:Category:Scope
+Grupo-GG-Prensa:OU=UO-Prensa,dc=campusvera,dc=mylocal:Grupo global y de seguridad del Dep.Prensa:Security:Global
+Grupo-GG-Administracion:OU=UO-Administracion,dc=campusvera,dc=mylocal:Grupo global y de seguridad del Dep.Administracion:Security:Global
+Grupo-GG-Informatica:OU=UO-Informatica,dc=campusvera,dc=mylocal:Grupo global y de seguridad del Dep.Informatica:Security:Global
+Grupo-GG-Rectorado:OU=UO-Rectorado,dc=campusvera,dc=mylocal:Grupo global y de seguridad del Dep.Rectorado:Security:Global

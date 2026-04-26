@@ -1,0 +1,5 @@
+Name:FirstName:LastName:Account:Path:Group:DNI:Departament:Enabled:Password:ExpirationAccount:Email:NetTime:Computer
+SUSANA:ALABAU:SANCHO:salabaus:OU=UO-Prensa,dc=campusvera,dc=mylocal:Grupo01-Prensa:12345679-B:Prensa:yes:susanaPrensa:30:salabaus@campusvera.mylocal:L-V,07:00-15:00:W11-CLI01
+PEDRO:GOMIS:ZAMBUJO:pgomisz:OU=UO-Prensa,dc=campusvera,dc=mylocal:Grupo01-Prensa:12345680-C:Prensa:yes:pedroPrensa:30:pgomisz@campusvera.mylocal:L-V,07:00-15:00:W11-CLI01
+PIEDAD:VALENCIA:RUIZ:pvalenciar:OU=UO-Prensa,dc=campusvera,dc=mylocal:Grupo01-Prensa:12345681-D:Prensa:yes:piedadPrensa:30:pvalenciar@campusvera.mylocal:L-V,07:00-15:00:W11-CLI01
+MANUEL:VARGAS:COELLO:mvargasc:OU=UO-Prensa,dc=campusvera,dc=mylocal:Grupo01-Prensa:12345682-E:Prensa:yes:manuelPrensa:30:mvargasc@campusvera.mylocal:L-V,07:00-15:00:W11-CLI01

@@ -1,0 +1,5 @@
+Computer:Path
+W11-CLI01:OU=UO-Prensa,dc=campusvera,dc=mylocal
+W11-CLI02:OU=UO-Administracion,dc=campusvera,dc=mylocal
+W11-CLI03:OU=UO-Informatica,dc=campusvera,dc=mylocal
+W11-CLI04:OU=UO-Rectorado,dc=campusvera,dc=mylocal
