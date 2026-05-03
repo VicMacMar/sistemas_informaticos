@@ -1,0 +1,56 @@
+# Configuración base
+$base    = "E:\GestorDocumental"
+$dominio = "CAMPUSVERA"
+
+$departamentos = @{
+    "Prensa"         = "Grupo-GG-Prensa"
+    "Administracion" = "Grupo-GG-Administracion"
+    "Informatica"    = "Grupo-GG-Informatica"
+    "Rectorado"      = "Grupo-GG-Rectorado"
+}
+
+# Crear carpeta base
+if (!(Test-Path $base)) {
+    New-Item -Path $base -ItemType Directory | Out-Null
+    Write-Host "Carpeta base creada: $base"
+}
+
+foreach ($dep in $departamentos.Keys) {
+    $ruta    = Join-Path $base $dep
+    $grupoRW = "$dominio\$($departamentos[$dep])"
+
+    # Crear carpeta del departamento
+    if (!(Test-Path $ruta)) {
+        New-Item -Path $ruta -ItemType Directory | Out-Null
+    }
+
+    # Deshabilitar herencia
+    icacls $ruta /inheritance:d | Out-Null
+
+    # Eliminar permisos heredados genéricos
+    icacls $ruta /remove:g "BUILTIN\Users"    | Out-Null
+    icacls $ruta /remove:g "Everyone"         | Out-Null
+
+    # Asignar permisos
+    icacls $ruta /grant:r "SYSTEM:(OI)(CI)(F)"                    | Out-Null
+    icacls $ruta /grant:r "BUILTIN\Administrators:(OI)(CI)(F)"    | Out-Null
+    icacls $ruta /grant:r "${grupoRW}:(OI)(CI)(M)"                | Out-Null
+
+    # Lectura al resto de departamentos
+    foreach ($otroGrupo in $departamentos.Values) {
+        if ($otroGrupo -ne $departamentos[$dep]) {
+            $grupoRX = "$dominio\$otroGrupo"
+            icacls $ruta /grant:r "${grupoRX}:(OI)(CI)(RX)" | Out-Null
+        }
+    }
+
+    # Verificar resultado
+    icacls $ruta 2>&1 | Out-Null
+    if ($LASTEXITCODE -ne 0) {
+        Write-Warning "ERROR en $ruta"
+    } else {
+        Write-Host "OK  $ruta  ->  RW=$grupoRW"
+    }
+}
+
+Write-Host "`nEstructura y permisos completados."
